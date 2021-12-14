@@ -38,7 +38,7 @@
 					<ul class="list-group">
 						<li class="list-group-item"><a href="index.php">Visitas pendentes</a></li>
 						<li class="list-group-item active">Nova visita</li>
-						<li class="list-group-item"><a href="todas_tarefas.php">Visitas realizadas</a></li>
+						<li class="list-group-item"><a href="visita_realizada.php">Visitas realizadas</a></li>
 					</ul>
 				</div>
 

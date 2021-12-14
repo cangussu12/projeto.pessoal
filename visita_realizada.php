@@ -31,10 +31,6 @@
         </div>
     </nav>
 	<script>
-			
-		function marcarRealizada (id) {
-			location.href = 'visita_realizada.php?acao=marcarRealizada&id='+id;
-		}
 
 		function remover (id) {
 			location.href = 'index.php?acao=remover&id='+id;
@@ -141,9 +137,9 @@
 			<div class="row">
 				<div class="col-md-3 menu">
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Visitas pendentes</li>
+                        <li class="list-group-item"><a href="index.php">Visitas pendentes</a></li>
                         <li class="list-group-item"><a href="nova_visita.php">Nova Visita</a></li>
-                        <li class="list-group-item"><a href="visita_realizada.php">Visitas realizadas</a></li>
+                        <li class="list-group-item active" aria-current="true">Visitas realizadas</li>
 
                     </ul>
 				</div>
@@ -156,53 +152,26 @@
 								<hr />	
 
 									<?php foreach ($visitas as $row => $value) { ?>
-										<?php if ($value->status == 'pendente') { ?>
-											<?php if ($value->data_cadastrado < $value->data_visita) { ?>
-												<div class="card">
-													<div class="card-header" id="visita_<?= $value->id ?>">
-														<a style="background-color:#ff7c4d; border-radius: 4px; padding-left: 6px;"> <b><?=$value->visita ?></b> </a> <a style="padding-left: 10px;"> </a> <a style="background-color:white; border-radius: 4px; padding-left: 2px; color:black; text-align:center; ; font-size:16px">visita agendada para: <?=$value->data_visita ?></a>
-														<div style="text-align:right">
-																<i onclick="remover(<?= $value->id ?>)" class="fas fa-trash-alt fa-lg text-danger"></i>
-																<i onclick="editar(<?= $value->id ?>, '<?= $value->visita ?>', '<?= $value->nome ?>', '<?= $value->telefone ?>', '<?= $value->descricao ?>', '<?= $value->data_visita ?>')" class="fas fa-edit fa-lg text-info"></i>
-																<i onclick="marcarRealizada(<?= $value->id ?>)" class="fas fa-check-square fa-lg text-success"></i>
-														</div>
-													</div>
-													
-													<div class="card-body" id="visita_<?= $value->id ?>">
-														<h5 id="nome_<?= $value->id ?>"class="card-title"><?=$value->nome ?></h5>
-														<p id="telefone_<?= $value->id ?>"><?=$value->telefone?></p>
-														<p id="descricao_<?= $value->id ?>" class="card-text"><?=$value->descricao ?></p>
-														<p id="data_<?= $value->id ?>"></p>
+                                        <?php if ($value->status == 'realizado') { ?>
+                                            <div class="card" style="background-color: #e6ffe6;">
+                                                <div class="card-header" id="visita_<?= $value->id ?>">
+                                                    <a style="background-color:#ff7c4d; border-radius: 4px; padding-left: 6px;"> <b><?=$value->visita ?></b> </a> <a style="padding-left: 10px;"> </a> <a style="background-color:white; border-radius: 4px; padding-left: 2px; color:black; text-align:center; ; font-size:16px"><?=$value->data_visita ?></a>
+                                                    <div style="text-align:right">
+                                                            <i onclick="remover(<?= $value->id ?>)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card-body" id="visita_<?= $value->id ?>">
+                                                    <h5 id="nome_<?= $value->id ?>"class="card-title"><?=$value->nome ?></h5>
+                                                    <p id="telefone_<?= $value->id ?>"><?=$value->telefone?></p>
+                                                    <p id="descricao_<?= $value->id ?>" class="card-text"><?=$value->descricao ?></p>
+                                                    <p id="data_<?= $value->id ?>"></p>
 
-													</div>
-													<a style="text-align: right; padding-right: 10px; font-size: 11px;"><b>Data de criação:</b> <?=$value->data_cadastrado?></a>
-												</div>
-												<br />
-												<?php } else {?>
-													<div class="card" style="background-color: #ffe6e6;">
-													<div class="card-header" id="visita_<?= $value->id ?>">
-														<a style="background-color:#ff7c4d; border-radius: 4px; padding-left: 6px;"> <b><?=$value->visita ?></b> </a> <a style="padding-left: 10px;"> </a> <a style="background-color:white; border-radius: 4px; padding-left: 2px; color:black; text-align:center; ; font-size:16px">visita agendada para: <?=$value->data_visita ?></a>
-
-														<div style="text-align:right">
-															<label style="padding-right: 5px; padding-left:5px; background-color:darkred; border-radius: 4px; text-align:right; color:white; font-size: 12px">Necessário Reagendamento</label>
-																<i onclick="remover(<?= $value->id ?>)" class="fas fa-trash-alt fa-lg text-danger"></i>
-																<i onclick="editar(<?= $value->id ?>, '<?= $value->visita ?>', '<?= $value->nome ?>', '<?= $value->telefone ?>', '<?= $value->descricao ?>', '<?= $value->data_visita ?>')" class="fas fa-edit fa-lg text-info"></i>
-																<i onclick="marcarRealizada(<?= $value->id ?>)" class="fas fa-check-square fa-lg text-success"></i>
-														</div>
-													</div>
-													
-													<div class="card-body" id="visita_<?= $value->id ?>">
-														<h5 id="nome_<?= $value->id ?>"class="card-title"><?=$value->nome ?></h5>
-														<p id="telefone_<?= $value->id ?>"><?=$value->telefone?></p>
-														<p id="descricao_<?= $value->id ?>" class="card-text"><?=$value->descricao ?></p>
-														<p id="data_<?= $value->id ?>"></p>
-
-													</div>
-													<a style="text-align: right; padding-right: 10px; font-size: 11px;"><b>Data de criação:</b> <?=$value->data_cadastrado?></a>
-												</div>
-												<br />
-													<?php } ?>
-											<?php } ?>
+                                                </div>
+                                                <a style="text-align: right; padding-right: 10px; font-size: 11px;"><b>Data de criação:</b> <?=$value->data_cadastrado?></a>
+                                            </div>
+                                            <br />
+                                            <?php } ?>
 									<?php } ?>
 							</div>
 						</div>
