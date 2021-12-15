@@ -16,7 +16,7 @@ class VisitaService {
     public function recuperar() { //read
 		$query = '
 		select 
-		t.id, s.status, t.visita, t.nome, t.descricao, t.telefone, t.corretor, t.data_visita, t.data_cadastrado 
+		t.id, s.status, t.visita, t.nome, t.descricao, t.telefone, t.data_visita, t.data_cadastrado 
 			from 
 		tb_visitas as t
 			left join tb_status as s on (t.id_status = s.id) ORDER BY t.id DESC

@@ -55,9 +55,6 @@
 											<div class="mb-1">
 												<input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome completo">
 											</div>
-											<div class="mb-1" style="padding-left: 10px;">
-												<input class="form-control" style="padding-left: 10px; width: 205px;" name="data_visita" type="date" value="2021-12-12">
-                                        	</div>
 										</div>
 										<div class="input-group mb-1">
 											<div class="mb-1">
@@ -69,10 +66,15 @@
 												<input name="telefone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Telefone">
 											</div>
 										</div>
+										<div class="input-group mb-1">
+											<div class="mb-1">
+												<input style="width: 208px;" class="form-control" name="data_visita" type="date" value="2021-12-12">
+											</div>
+										</div>
 										<div class="input-group mb-2">
-											<div class="input-group">
+											<div class="input-group" style="width: 400px;">
 												<span class="input-group-text">Descrição</span>
-												<textarea name="descricao" class="form-control" aria-label="Digite aqui..."></textarea>
+												<textarea style="height: 100px;" name="descricao" class="form-control" aria-label="Digite aqui..."></textarea>
 											</div>
 										</div>
 									</div>

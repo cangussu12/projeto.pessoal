@@ -25,7 +25,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://crbconstrutora.com.br/wp-content/uploads/2016/08/CRB-Logo-2.png" alt="" width="125" height="40">
+                <img src="logo.png" alt="" width="40" height="40"> Leonardo Cangussu
             </a>
             <a>Estudo sobre PHP com PDO.</a>
         </div>
@@ -157,7 +157,11 @@
 
 									<?php foreach ($visitas as $row => $value) { ?>
 										<?php if ($value->status == 'pendente') { ?>
-											<?php if ($value->data_cadastrado < $value->data_visita) { ?>
+											<?php 
+												$today = date("Y-m-d");
+
+												if ($value->data_visita > $today) { 
+											?>
 												<div class="card">
 													<div class="card-header" id="visita_<?= $value->id ?>">
 														<a style="background-color:#ff7c4d; border-radius: 4px; padding-left: 6px;"> <b><?=$value->visita ?></b> </a> <a style="padding-left: 10px;"> </a> <a style="background-color:white; border-radius: 4px; padding-left: 2px; color:black; text-align:center; ; font-size:16px">visita agendada para: <?=$value->data_visita ?></a>
