@@ -25,7 +25,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://crbconstrutora.com.br/wp-content/uploads/2016/08/CRB-Logo-2.png" alt="" width="125" height="40">
+				<img src="logo.png" alt="" width="40" height="40"> Leonardo Cangussu
             </a>
             <a>Estudo sobre PHP com PDO.</a>
         </div>
@@ -148,7 +148,7 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-								<h4>Visitas pendentes</h4>
+								<h4>Visitas realizadas</h4>
 								<hr />	
 
 									<?php foreach ($visitas as $row => $value) { ?>
